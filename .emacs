@@ -1,9 +1,20 @@
 ;;Add plugin directory
 (add-to-list 'load-path "~/elisp")
 
+;;Hide the splash screen
+(setq inhibit-splash-screen t)
+
+;;Better theme in GUI versions of emacs 24
+(when (and (>= emacs-major-version 24) (display-graphic-p))
+ (require 'monokai-theme)
+ (load-theme 'monokai t))
+
 ;;Smooth scrolling
 (global-set-key "\M-n" '"\C-u2\C-v")
 (global-set-key "\M-p" '"\C-u2\M-v")
+(setq mouse-wheel-scroll-amount '(1 ((shift) . 1)))
+(setq mouse-wheel-progressive-speed nil)
+(setq mouse-wheel-follow-mouse t)
 
 ;;Add line numbers
 (require 'linum)
@@ -16,14 +27,17 @@
 ;;Open at startup
 ;;(sr-speedbar-open)
 ;;Fix the size even during resize
-(with-current-buffer sr-speedbar-buffer-name
-  (setq window-size-fixed 'width))
+;;(with-current-buffer sr-speedbar-buffer-name
+  ;;(setq window-size-fixed 'width))
 
 ;;Show file size
 (size-indication-mode)
 
 ;;Turns on syntax highlighting
 (global-font-lock-mode t)
+
+;;Changes all yes/no questions to y/n type
+(fset 'yes-or-no-p 'y-or-n-p)
 
 ;;Max colorization
 (setq font-lock-maximum-decoration t)
