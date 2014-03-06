@@ -14,7 +14,7 @@
 ;;Use just ASCII, no images
 (setq speedbar-use-images nil)
 ;;Open at startup
-(sr-speedbar-open)
+;;(sr-speedbar-open)
 ;;Fix the size even during resize
 (with-current-buffer sr-speedbar-buffer-name
   (setq window-size-fixed 'width))
