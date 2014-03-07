@@ -9,6 +9,9 @@
  (require 'monokai-theme)
  (load-theme 'monokai t))
 
+;;Disable the toolbar
+(tool-bar-mode -1)
+
 ;;Smooth scrolling
 (global-set-key "\M-n" '"\C-u2\C-v")
 (global-set-key "\M-p" '"\C-u2\M-v")
@@ -165,17 +168,17 @@ Includes support for Qt code (signal, slots and alikes)."
 ;(define-key c-mode-base-map (kbd "RET") 'newline-and-indent)
 
 (custom-set-variables
-  ;; custom-set-variables was added by Custom.
-  ;; If you edit it by hand, you could mess it up, so be careful.
-  ;; Your init file should contain only one such instance.
-  ;; If there is more than one, they won't work right.
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
  '(gud-gdb-command-name "gdb --annotate=1")
  '(large-file-warning-threshold nil))
 (custom-set-faces
-  ;; custom-set-faces was added by Custom.
-  ;; If you edit it by hand, you could mess it up, so be careful.
-  ;; Your init file should contain only one such instance.
-  ;; If there is more than one, they won't work right.
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
  )
 
 (put 'narrow-to-region 'disabled nil)
