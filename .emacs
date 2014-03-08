@@ -67,6 +67,9 @@
 (global-set-key (kbd "C-c <right>") 'windmove-right)
 (global-set-key (kbd "C-c <left>") 'windmove-left)
 
+;;Open up Header files as C++ files
+(add-to-list 'auto-mode-alist '("\\.h\\'" . c++-mode))
+
 ;;Google C++ Style guidlines
 (require 'google-c-style)
 (add-hook 'c-mode-common-hook 'google-set-c-style)
