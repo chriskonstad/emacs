@@ -13,9 +13,6 @@
 (when (display-graphic-p)
   (tool-bar-mode -1))
 
-;;Turn on EDE mode
-(if (>= emacs-major-version 24) (global-ede-mode t))
-
 ;;Smooth scrolling
 (global-set-key "\M-n" '"\C-u2\C-v")
 (global-set-key "\M-p" '"\C-u2\M-v")
@@ -26,6 +23,9 @@
 ;;Add line numbers
 (require 'linum)
 (add-hook 'c-mode-common-hook (lambda () (linum-mode 1)))
+
+;;Add the makefile skeleton
+(load-library "makefile-skeleton")
 
 ;;Speedbar
 (require 'sr-speedbar)
