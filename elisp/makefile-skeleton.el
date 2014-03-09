@@ -27,5 +27,5 @@
   "\t$(CC) $(CFLAGS) $< -o $@\n"
   "\n"
   "clean:\n"
-  "\trm -rf *o $(EXECUTABLE)\n"
+  "\trm -rf *.o $(EXECUTABLE) $(EXECUTABLE).dSYM\n"
 )
