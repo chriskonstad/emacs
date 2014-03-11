@@ -73,6 +73,9 @@
 ;;Open up Header files as C++ files
 (add-to-list 'auto-mode-alist '("\\.h\\'" . c++-mode))
 
+;;Open up PHP files with HTML mode
+(add-to-list 'auto-mode-alist '("\\.php\\'" . html-mode))
+
 ;;Google C++ Style guidlines
 (require 'google-c-style)
 (add-hook 'c-mode-common-hook 'google-set-c-style)
