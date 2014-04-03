@@ -13,6 +13,8 @@
   '(magit
     auto-complete
     auto-complete-c-headers
+    auto-complete-clang
+    exec-path-from-shell
     yasnippet)
   "List of packages needs to be installed at launch")
 
@@ -33,10 +35,12 @@
 ;;Enable autocomplete if installed via package
 (require 'auto-complete)
 (require 'auto-complete-config)
+(require 'auto-complete-clang)
 (ac-config-default)
 (defun my:ac-c-header-init()
   (require 'auto-complete-c-headers)
-  (add-to-list 'ac-sources 'ac-source-c-headers))
+  (add-to-list 'ac-sources 'ac-source-c-headers)
+  (add-to-list 'ac-sources 'ac-source-clang))
 (add-hook 'c++-mode-hook 'my:ac-c-header-init)
 (add-hook 'c-mode-hook 'my:ac-c-header-init)
 
@@ -48,3 +52,7 @@
 (when (and (>= emacs-major-version 24) (display-graphic-p))
  (require 'monokai-theme)
  (load-theme 'monokai t))
+
+;;Fix the PATH variable for the GUI on OSX
+(when (memq window-system '(mac ns))
+  (exec-path-from-shell-initialize))
