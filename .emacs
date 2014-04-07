@@ -4,12 +4,18 @@
 ;;Hide the splash screen
 (setq inhibit-splash-screen t)
 
+;;Load Emacs24 config settings
 (when (>= emacs-major-version 24)
   (load-library "emacs24config"))
 
 ;;Disable the toolbar
 (when (display-graphic-p)
   (tool-bar-mode -1))
+
+;;Unique buffer names
+(require 'uniquify)
+(setq uniquify-buffer-name-style 'post-forward
+      uniquify-separator ":")
 
 ;;Smooth scrolling
 (global-set-key "\M-n" '"\C-u2\C-v")

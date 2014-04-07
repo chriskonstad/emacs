@@ -40,9 +40,26 @@
 (defun my:ac-c-header-init()
   (require 'auto-complete-c-headers)
   (add-to-list 'ac-sources 'ac-source-c-headers)
-  (add-to-list 'ac-sources 'ac-source-clang))
+  (add-to-list 'ac-sources 'ac-source-clang)
+  (add-to-list 'ac-sources 'ac-source-semantic)
+  (add-to-list 'ac-sources 'ac-source-words-in-same-mode-buffers)
+  (add-to-list 'ac-sources 'ac-source-filename))
 (add-hook 'c++-mode-hook 'my:ac-c-header-init)
 (add-hook 'c-mode-hook 'my:ac-c-header-init)
+(defun my:ac-webdev-init()
+  (add-to-list 'ac-sources 'ac-source-filename)
+  (add-to-list 'ac-sources 'ac-source-files-in-current-dir)
+  (add-to-list 'ac-sources 'ac-source-words-in-same-mode-buffers))
+(add-hook 'html-mode-hook 'my:ac-webdev-init)
+(setq ac-use-fuzzy t)
+
+;;Use C-n/C-p to naviage autocomplete
+(setq ac-use-menu-map t)
+(define-key ac-menu-map "\C-n" 'ac-next)
+(define-key ac-menu-map "\C-p" 'ac-previous)
+
+;;Ignore case
+(setq ac-ignore-case t)
 
 ;;Enable yasnippet
 (require 'yasnippet)
