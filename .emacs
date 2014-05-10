@@ -31,6 +31,10 @@
 ;;Add the makefile skeleton
 (load-library "makefile-skeleton")
 
+;;Load the asm86 assmebly mode
+(load-library "asm86-mode")
+(add-to-list 'auto-mode-alist '("\\.s\\'" . asm86-mode))
+
 ;;Speedbar
 (require 'sr-speedbar)
 ;;Use just ASCII, no images
@@ -56,6 +60,9 @@
 ;;Add auto-pairing
 (require 'autopair)
 (add-hook 'c-mode-common-hook (lambda () (autopair-mode 1)))
+
+;;Auto indent new lines
+(setq newline-and-indent t)
 
 ;;Google Nav
 (add-to-list 'load-path "~/elisp/emacs-nav-49/")

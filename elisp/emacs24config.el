@@ -11,10 +11,14 @@
 ;; Guarantee all packages are installed on start
 (defvar packages-list
   '(magit
+    auctex
     auto-complete
     auto-complete-c-headers
     auto-complete-clang
     exec-path-from-shell
+    elpy
+    json-mode
+    js2-mode
     yasnippet)
   "List of packages needs to be installed at launch")
 
@@ -64,6 +68,9 @@
 ;;Enable yasnippet
 (require 'yasnippet)
 (yas-global-mode 1)
+
+;;Enable AuxTeX
+(add-to-list 'auto-mode-alist '("\\.tex\\'" . LaTeX-mode))
 
 ;;Better theme in GUI versions of emacs 24
 (when (and (>= emacs-major-version 24) (display-graphic-p))
