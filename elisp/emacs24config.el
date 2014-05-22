@@ -47,7 +47,8 @@
   (add-to-list 'ac-sources 'ac-source-clang)
   (add-to-list 'ac-sources 'ac-source-semantic)
   (add-to-list 'ac-sources 'ac-source-words-in-same-mode-buffers)
-  (add-to-list 'ac-sources 'ac-source-filename))
+  (add-to-list 'ac-sources 'ac-source-filename)
+  (add-to-list 'ac-sources 'ac-source-gtags))
 (add-hook 'c++-mode-hook 'my:ac-c-header-init)
 (add-hook 'c-mode-hook 'my:ac-c-header-init)
 (defun my:ac-webdev-init()
@@ -55,6 +56,7 @@
   (add-to-list 'ac-sources 'ac-source-files-in-current-dir)
   (add-to-list 'ac-sources 'ac-source-words-in-same-mode-buffers))
 (add-hook 'html-mode-hook 'my:ac-webdev-init)
+(add-hook 'javascript-mode-hook 'my:ac-webdev-init)
 (setq ac-use-fuzzy t)
 
 ;;Use C-n/C-p to naviage autocomplete

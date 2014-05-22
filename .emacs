@@ -4,6 +4,19 @@
 ;;Hide the splash screen
 (setq inhibit-splash-screen t)
 
+;;No scratch message
+(setq initial-scratch-message "")
+
+;;Enable recent files list
+(require 'recentf)
+(setq recentf-max-saved-items 200
+      recentf-max-menu-items 15)
+(recentf-mode +1)
+(global-set-key (kbd "C-c r") 'recentf-open-files)
+
+;;Display recent files on startup
+(recentf-open-files)
+
 ;;Load Emacs24 config settings
 (when (>= emacs-major-version 24)
   (load-library "emacs24config"))
@@ -193,7 +206,7 @@ Includes support for Qt code (signal, slots and alikes)."
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(gud-gdb-command-name "gdb --annotate=1")
+ '(gud-gdb-command-name "gdb --annotate=1 -i=mi")
  '(large-file-warning-threshold nil))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
