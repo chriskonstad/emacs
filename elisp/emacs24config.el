@@ -79,6 +79,9 @@
  (require 'monokai-theme)
  (load-theme 'monokai t))
 
+;;Make sure the cursor color is white
+(setq cursor-color "white")
+
 ;;Fix the PATH variable for the GUI on OSX
 (when (memq window-system '(mac ns))
   (exec-path-from-shell-initialize))
